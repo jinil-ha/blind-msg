@@ -1,12 +1,15 @@
 package handler
 
 import (
+	"fmt"
+
 	"github.com/kataras/golog"
 	"github.com/kataras/iris"
 
 	"github.com/jinil-ha/blind-msg/service"
 	svc "github.com/jinil-ha/blind-msg/service"
 	"github.com/jinil-ha/blind-msg/service/line"
+	"github.com/jinil-ha/blind-msg/service/slack"
 	"github.com/jinil-ha/blind-msg/utils/bac"
 )
 
@@ -39,6 +42,9 @@ func TopHandler(ctx iris.Context) {
 
 	if logined {
 		golog.Infof("user entered : %s", profile.UserID)
+		dmsg := fmt.Sprintf("User logined\n id: %s\n name: %s\n pic: %s",
+			profile.UserID, profile.DisplayName, profile.PictureURL)
+		slack.SendChannel(dmsg)
 
 		b, err := bac.GetBAC(service, profile.UserID)
 		if err != nil {
@@ -59,5 +65,8 @@ func TopHandler(ctx iris.Context) {
 		ctx.View("top.html")
 	} else {
 		ctx.View("index.html")
+
+		dmsg := fmt.Sprintf("Open homepage\n IP: %s", ctx.RemoteAddr())
+		slack.SendChannel(dmsg)
 	}
 }

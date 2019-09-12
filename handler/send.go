@@ -24,6 +24,9 @@ func GetSendHandler(ctx iris.Context) {
 	ctx.ViewData("msg", msg)
 	ctx.ViewData("token", "test_token")
 	ctx.View("send.html")
+
+	dmsg := fmt.Sprintf("Open send page\n bac: %s\n IP: %s", b, ctx.RemoteAddr())
+	slack.SendChannel(dmsg)
 }
 
 // PostSendHandler send msg to user
@@ -52,8 +55,9 @@ func PostSendHandler(ctx iris.Context) {
 	}
 
 	// for debug
-	smsg := fmt.Sprintf("bac: %s\nservice: %s\nid: %s\n%s", b, s, uid, msg)
-	slack.SendChannel(smsg)
+	dmsg := fmt.Sprintf("Message Sent\n bac: %s\n service: %s\n id: %s\n from: %s\n message: %s",
+		b, s, uid, contact, message)
+	slack.SendChannel(dmsg)
 
 	ctx.View("send_ok.html")
 }
