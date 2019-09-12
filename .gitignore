@@ -1,0 +1,12 @@
+*.swp
+.DS_Store
+.idea
+*.log
+bin/
+lib/
+vendor/
+temp
+nohup.out
+blind-msg
+server.yaml
+nginx.conf

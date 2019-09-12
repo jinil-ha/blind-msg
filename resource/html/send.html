@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blind Message</title>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/basic.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="container">
+      <form class="form-style" method="post" action="">
+        <input name="token" type="hidden" value="{{.token}}">
+        <div class="header">
+          <p>{{.msg}}</p>
+        </div>
+        <div class="body">
+          <ul>
+            <li><input type="text" name="contact" class="field-style field-full align-none" placeholder="Your contact info" /></li>
+            <li><textarea name="msg" class="field-style field-full" placeholder="Write something here"></textarea></li>
+            <li><input type="submit" class="field-full" value="送信"></li>
+          </ul>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

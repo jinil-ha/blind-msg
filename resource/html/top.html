@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blind Message</title>
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8' />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link href="css/basic.css" type="text/css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="area" align="center">
+            <h4 class="text-center">Blind message</h4>
+            <img class="profile-img" src="{{.pic_url}}" />
+            <h4 class="text-center">{{.name}}</h4>
+            <h4 class="text-center">QR Code</h4>
+            <a href="{{.send_url}}" target="_blank"><img class="qr-img" src="{{.qr_url}}" /></a>
+            <div class="area-margin">
+              <a href="/logout">[Logout]</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

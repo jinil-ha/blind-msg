@@ -1,0 +1,10 @@
+/var/log/blind-msg/server.log {
+  rotate 30
+  daily
+  compress
+  missingok
+  notifempty
+  postrotate
+    /bin/kill -HUP `cat /tmp/blind-msg.pid 2> /dev/null` 2> /dev/null || true
+  endscript
+}

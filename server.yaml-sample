@@ -1,0 +1,29 @@
+pid_file: /tmp/blind-msg.pid
+listen_addr: 0.0.0.0:10080
+log_file: /var/log/blind-msg/server.log
+# debug, info, warning, error, fatal
+log_level: warning
+
+mysql:
+  host:
+  port:
+  dbname:
+  username:
+  password:
+
+qrcode:
+  dir: /home/user/upload/qr
+  url: /qr
+  send_url: https://blind-msg.jinstory.net/send
+
+line:
+  login:
+    channel_id:
+    channel_secret:
+    redirect_uri: https://blind-msg.jinstory.net/auth
+  message:
+    access_token:
+
+slack:
+  token:
+  channel_id:
