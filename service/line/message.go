@@ -13,18 +13,10 @@ import (
 )
 
 var pushMessageURL string
-
-// var messageChannelID string
-// var messageChannelSecret string
 var messageAccessToken string
-
-// U5475f5a9af5164a377ae2466088ade84
 
 func init() {
 	pushMessageURL = "https://api.line.me/v2/bot/message/push"
-
-	//messageChannelID = "1602703326"
-	//messageChannelSecret = "c7f05c38a31371c985ede962a0142685"
 	messageAccessToken = config.GetString("line.message.access_token")
 }
 
