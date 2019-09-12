@@ -32,6 +32,5 @@ func Start() {
 	}
 
 	rtm = api.NewRTM()
-
 	go rtm.ManageConnection()
 }

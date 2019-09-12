@@ -37,6 +37,7 @@ location /qr {
 ## location blind-msg
 location / {
   proxy_pass	http://127.0.0.1:10080/;
+  proxy_set_header  X-REAL-IP $remote_addr;
 }
 
 # edit server.yaml
