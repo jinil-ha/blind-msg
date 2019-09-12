@@ -25,7 +25,7 @@ func GetSendHandler(ctx iris.Context) {
 	ctx.ViewData("token", "test_token")
 	ctx.View("send.html")
 
-	dmsg := fmt.Sprintf("Open send page\n bac: %s\n IP: %s", b, ctx.RemoteAddr())
+	dmsg := fmt.Sprintf("Open send page\n bac: %s\n IP: %s", b, ctx.GetHeader("X-REAL-IP"))
 	slack.SendChannel(dmsg)
 }
 

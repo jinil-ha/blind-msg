@@ -66,7 +66,7 @@ func TopHandler(ctx iris.Context) {
 	} else {
 		ctx.View("index.html")
 
-		dmsg := fmt.Sprintf("Open homepage\n IP: %s", ctx.RemoteAddr())
+		dmsg := fmt.Sprintf("Open homepage\n IP: %s", ctx.GetHeader("X-REAL-IP"))
 		slack.SendChannel(dmsg)
 	}
 }
